@@ -20,7 +20,7 @@ interface ResumeData {
 const resumeDisplay = document.getElementById( "resume-display") as HTMLElement;
 const form = document.getElementById("resume-form") as HTMLFormElement;
 const editResume = document.getElementById('editResume') as HTMLButtonElement;
-const shareLink = document.getElementById('shareLink') as HTMLButtonElement;
+const generateInk = document.getElementById('generateInk') as HTMLButtonElement;
 
 
 
@@ -31,7 +31,7 @@ function generateResume(event: Event) {
   resumeDisplay.style.display = "flex";
   editResume.style.display = "block";
   form.style.display ="none";
-  shareLink.style.display = "block";
+  generateInk.style.display = "block";
 
 
 
@@ -214,12 +214,12 @@ const addEducationButton = document.getElementById(
 addEducationButton.addEventListener("click", addEducationFields);
 
 function goToEditMode() {
-  // Retrieve data from localStorage
+
   const storedResume = localStorage.getItem("resume");
   if (storedResume) {
     const resume: ResumeData = JSON.parse(storedResume);
 
-    // Populate form fields
+    
     (document.getElementById("firstName") as HTMLInputElement).value = resume.firstName;
     (document.getElementById("lastName") as HTMLInputElement).value = resume.lastName;
     (document.getElementById("email") as HTMLInputElement).value = resume.email;
@@ -259,11 +259,11 @@ function goToEditMode() {
     form.style.display = "block";
     editResume.style.display ="none";
     resumeDisplay.style.display = "none";
-    shareLink.style.display = "none";
+    generateInk.style.display = "none";
   }
 }
 
-shareLink.addEventListener('click', function() {
+generateInk.addEventListener('click', function() {
   const resumeData = localStorage.getItem('resume');
   if (!resumeData) {
     alert("No resume data found!");

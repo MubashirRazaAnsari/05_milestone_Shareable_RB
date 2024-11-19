@@ -176,7 +176,7 @@ span {
 .resumeBtn{
   
   display: flex;
-  justify-content: center;  /* Horizontally centers the buttons */
+  justify-content: center; 
   align-items: center;
   gap: 10px;
 }

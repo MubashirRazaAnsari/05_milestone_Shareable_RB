@@ -1,13 +1,13 @@
 var resumeDisplay = document.getElementById("resume-display");
 var form = document.getElementById("resume-form");
 var editResume = document.getElementById('editResume');
-var shareLink = document.getElementById('shareLink');
+var generateInk = document.getElementById('generateInk');
 function generateResume(event) {
     event.preventDefault();
     resumeDisplay.style.display = "flex";
     editResume.style.display = "block";
     form.style.display = "none";
-    shareLink.style.display = "block";
+    generateInk.style.display = "block";
     var firstName = document.getElementById("firstName")
         .value;
     var lastName = document.getElementById("lastName")
@@ -88,11 +88,9 @@ addExperienceButton.addEventListener("click", addExperienceFields);
 var addEducationButton = document.getElementById("addEducation");
 addEducationButton.addEventListener("click", addEducationFields);
 function goToEditMode() {
-    // Retrieve data from localStorage
     var storedResume = localStorage.getItem("resume");
     if (storedResume) {
         var resume = JSON.parse(storedResume);
-        // Populate form fields
         document.getElementById("firstName").value = resume.firstName;
         document.getElementById("lastName").value = resume.lastName;
         document.getElementById("email").value = resume.email;
@@ -117,10 +115,10 @@ function goToEditMode() {
         form.style.display = "block";
         editResume.style.display = "none";
         resumeDisplay.style.display = "none";
-        shareLink.style.display = "none";
+        generateInk.style.display = "none";
     }
 }
-shareLink.addEventListener('click', function () {
+generateInk.addEventListener('click', function () {
     var resumeData = localStorage.getItem('resume');
     if (!resumeData) {
         alert("No resume data found!");
